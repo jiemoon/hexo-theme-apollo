@@ -10,6 +10,11 @@ block description
 block container
     include mixins/post
     +post(page)
+    if page.toc !== false
+      div#toc.toc-article
+        div.toc-title
+          目录
+        != toc(page.content)
 
 block pagination
     include mixins/paginator

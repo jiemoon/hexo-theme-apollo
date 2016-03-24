@@ -14,6 +14,7 @@ mixin posts()
                     +postInfo(item)
                     .post-content
                         != item.excerpt
+                        != item.desc
                     a.read-more(href= url_for(item.path))!= __('more')
         - })
 
@@ -26,7 +27,7 @@ mixin postList()
             - var itemYear = date(item.date, 'YYYY') - 0;
             - change = year !== itemYear;
             - year = change ? itemYear : year;
-            if change 
+            if change
                 h2.archive-year!= year
             .post-item
                 +postInfo(item)
